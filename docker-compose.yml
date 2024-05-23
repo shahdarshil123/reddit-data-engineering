@@ -10,14 +10,14 @@ x-airflow-common:
     - airflow.env
   volumes:
     - ./config:/opt/airflow/config
-    - ./dags:/opt/airflow/dags
-    - ./data:/opt/airflow/data
-    - ./etls:/opt/airflow/etls
-    - ./logs:/opt/airflow/logs
-    - ./pipelines:/opt/airflow/pipelines
-    - ./plugins:/opt/airflow/plugins
-    - ./tests:/opt/airflow/tests
-    - ./utils:/opt/airflow/utils
+    - ./dags:/opt/airflow/dags/
+    - ./data:/opt/airflow/data/
+    - ./etls:/opt/airflow/etls/
+    - ./logs:/opt/airflow/logs/
+    - ./pipelines:/opt/airflow/pipelines/
+    - ./plugins:/opt/airflow/plugins/
+    - ./tests:/opt/airflow/tests/
+    - ./utils:/opt/airflow/utils/
    # - ./airflow.cfg:/opt/airflow/airflow.cfg
     - ./requirements.txt:/opt/airflow/requirements.txt
   depends_on:
@@ -40,11 +40,11 @@ services:
     ports:
       - "6379:6379"
 
-  # airflow-init:
-  #   <<: *airflow-common
-  #   command: >
-  #     bash -c "pip install -r /opt/airflow/requirements.txt && airflow db init && airflow users create --username admin --firstname admin --lastname admin --role Admin --email airflow@airflow.com --password admin"
-  #   restart: "no"
+  airflow-init:
+    <<: *airflow-common
+    command: >
+      bash -c "pip install -r /opt/airflow/requirements.txt && airflow db init && airflow users create --username admin --firstname admin --lastname admin --role Admin --email airflow@airflow.com --password admin"
+    restart: "no"
 
   airflow-webserver:
     <<: *airflow-common
