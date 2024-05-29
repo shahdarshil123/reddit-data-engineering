@@ -4,3 +4,5 @@
 /etls/__pycache__/
 /pipelines/__pycache__/
 /utils/__pycache__/
+/config/
+
