@@ -6,12 +6,12 @@ database_username = postgres
 database_password = postrgres
 
 [file_paths]
-input_path = /opt/airflow/data/input
-output_path = /opt/airflow/data/output
+input_path = /opt/airflow/data
+output_path = /opt/airflow/data
 
 [api_keys]
-reddit_secret_key = Qa2SeIqRa7nQ1kADAj7ke-CH8awqlQ
-reddit_client_id = lZEJyoJeGue2tcEPQNNgKw
+reddit_secret_key = <your_reddit_api_key>
+reddit_client_id = <your_reddit_client_id>
 
 [aws]
 aws_access_key_id = [aws access key id]
